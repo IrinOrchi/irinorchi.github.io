@@ -6,7 +6,7 @@
 <title>Irin Hoque Orchi — NLP Researcher &amp; Software Engineer</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,500;0,600;0,700;1,500&family=Karla:wght@400;500;600;700&family=Caveat:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
     --paper:#f5f3ee;
@@ -21,8 +21,11 @@
     --plum:#4f6a8f;
     --plum-soft:#dde3ec;
     --white:#fffdf9;
+    --navy:#33456b;
+    --brick:#a13d2e;
     --radius:2px;
     --maxw:1040px;
+    --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -30,7 +33,7 @@
     margin:0;
     background:var(--paper);
     color:var(--ink);
-    font-family:'IBM Plex Sans', sans-serif;
+    font-family:'Karla', sans-serif;
     font-size:16px;
     line-height:1.6;
     -webkit-font-smoothing:antialiased;
@@ -41,13 +44,17 @@
   a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
 
   h1,h2,h3,h4{
-    font-family:'Newsreader', serif;
-    font-weight:500;
+    font-family:'Lora', serif;
+    font-weight:600;
     color:var(--ink);
     margin:0;
-    letter-spacing:-0.01em;
   }
-  .mono{font-family:'IBM Plex Mono', monospace;}
+  .label{
+    font-family:'Karla', sans-serif;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.08em;
+  }
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
 
   /* ---------- nav ---------- */
@@ -62,7 +69,7 @@
     display:flex; justify-content:space-between; align-items:center;
     flex-wrap:wrap; gap:10px;
   }
-  .nav-mark{font-family:'Newsreader', serif; font-size:1.3rem; font-weight:600;}
+  .nav-mark{font-family:'Lora', serif; font-size:1.3rem; font-weight:600;}
   .nav-mark span{color:var(--teal);}
   nav.nav-links{display:flex; gap:24px; flex-wrap:wrap;}
   nav.nav-links a{
@@ -84,9 +91,10 @@
     align-items:center;
   }
   .eyebrow{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
-    letter-spacing:0.14em;
+    font-family:'Karla', sans-serif;
+    font-weight:600;
+    font-size:0.78rem;
+    letter-spacing:0.12em;
     text-transform:uppercase;
     color:var(--teal);
     margin-bottom:14px;
@@ -96,7 +104,7 @@
     content:''; width:22px; height:1px; background:var(--teal);
   }
   .hero-name{
-    font-family:'Newsreader', serif;
+    font-family:'Lora', serif;
     font-size:clamp(1.5rem, 2.4vw, 1.9rem);
     font-weight:600;
     color:var(--ink);
@@ -105,7 +113,7 @@
   h1.hero-title{
     font-size:clamp(1.4rem, 2.6vw, 2rem);
     font-weight:500;
-    line-height:1.24;
+    line-height:1.3;
     color:var(--ink-soft);
   }
   h1.hero-title em{
@@ -120,8 +128,9 @@
   .seeking-pill{
     display:inline-flex; align-items:center; gap:8px;
     margin-top:22px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
+    font-family:'Karla', sans-serif;
+    font-weight:600;
+    font-size:0.8rem;
     letter-spacing:0.03em;
     color:var(--teal);
     background:var(--teal-soft);
@@ -140,7 +149,7 @@
   .btn{
     display:inline-flex; align-items:center; gap:8px;
     padding:11px 20px;
-    font-family:'IBM Plex Sans', sans-serif;
+    font-family:'Karla', sans-serif;
     font-size:0.9rem; font-weight:600;
     border-radius:var(--radius);
     border:1px solid var(--ink);
@@ -152,28 +161,27 @@
   .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
   .btn-ghost:hover{border-color:var(--ink); text-decoration:none;}
 
-  /* ---------- signature: one sentence, underlined differently by each annotator ---------- */
+  /* ---------- signature: field-note style annotation sample ---------- */
   .expr-card{
-    background:var(--white);
-    border:1px solid var(--line);
-    border-radius:3px;
-    padding:30px 28px 26px;
-    box-shadow:0 1px 0 var(--line);
+    border-left:4px solid var(--ink);
+    padding:6px 0 6px 26px;
   }
   .expr-eyebrow{
     display:block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.68rem;
-    letter-spacing:0.09em;
+    font-family:'Lora', serif;
+    font-weight:600;
+    font-size:0.75rem;
+    letter-spacing:0.08em;
     text-transform:uppercase;
-    color:var(--ink-soft);
-    margin-bottom:20px;
+    color:#8a5a1f;
+    margin-bottom:18px;
   }
   .annot-sentence-single{
     margin:0;
-    font-family:'Newsreader', serif;
-    font-size:1.22rem;
-    line-height:1.7;
+    font-family:'Lora', serif;
+    font-style:italic;
+    font-size:1.35rem;
+    line-height:1.6;
     color:var(--ink);
   }
   .annot-sentence-single u{
@@ -181,40 +189,38 @@
     padding-bottom:2px;
     border-bottom:2px solid currentColor;
   }
-  .expr-divider{height:1px; background:var(--line); margin:24px 0 18px;}
+  .expr-divider{height:1px; background:var(--line); margin:20px 0 16px;}
   .annot-legend{
     display:flex;
-    flex-direction:column;
-    gap:10px;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:22px;
   }
   .annot-legend .leg-row{
-    display:flex;
-    align-items:baseline;
-    gap:10px;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.78rem;
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'Lora', serif;
+    font-size:0.9rem;
     color:var(--ink-soft);
-    opacity:0;
-    animation:rise 0.5s ease forwards;
+    white-space:nowrap;
   }
   .annot-legend .leg-dot{
-    width:9px; height:9px; border-radius:50%; flex-shrink:0;
+    width:8px; height:8px; border-radius:50%; flex-shrink:0;
   }
-  .annot-legend b{color:var(--ink);}
-  @keyframes rise{
-    from{opacity:0; transform:translateY(6px);}
-    to{opacity:1; transform:translateY(0);}
-  }
+  .annot-legend b{color:var(--ink); font-weight:700;}
   .signature-caption{
-    text-align:center;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.72rem;
-    color:var(--ink-soft);
-    letter-spacing:0.03em;
-    margin-top:14px;
-  }
-  @media (prefers-reduced-motion: reduce){
-    .annot-legend .leg-row{animation:none; opacity:1;}
+    display:block;
+    box-sizing:border-box;
+    color:rgb(156,59,46);
+    font-family:'Caveat', cursive;
+    font-size:20px;
+    line-height:25px;
+    margin-block-start:16px;
+    margin-block-end:20px;
+    margin-inline-start:0px;
+    margin-inline-end:0px;
+    text-align:left;
   }
 
   /* ---------- section shell ---------- */
@@ -227,9 +233,11 @@
     flex-wrap:wrap;
   }
   .section-num{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    letter-spacing:0.1em;
     color:var(--amber);
-    font-size:0.85rem;
+    font-size:0.8rem;
   }
   .section-head h2{font-size:1.7rem;}
   .section-lede{
@@ -265,9 +273,10 @@
   .focus-card p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
   .focus-tag{
     display:inline-block;
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.68rem;
-    letter-spacing:0.04em;
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    font-size:0.7rem;
+    letter-spacing:0.06em;
     padding:3px 8px;
     border-radius:2px;
     margin-bottom:14px;
@@ -288,8 +297,9 @@
     margin-bottom:12px;
   }
   .pub-role{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.7rem;
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    font-size:0.72rem;
     letter-spacing:0.05em;
     text-transform:uppercase;
     padding:4px 9px;
@@ -303,7 +313,7 @@
   .pub-desc{color:var(--ink-soft); font-size:0.92rem; margin-bottom:16px;}
   .metric-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;}
   .metric{
-    font-family:'IBM Plex Mono', monospace;
+    font-family:var(--mono);
     font-size:0.78rem;
     background:var(--paper-dim);
     border:1px solid var(--line);
@@ -311,7 +321,7 @@
     border-radius:2px;
   }
   .metric b{color:var(--teal);}
-  .pub-links{font-family:'IBM Plex Mono', monospace; font-size:0.8rem;}
+  .pub-links{font-family:var(--mono); font-size:0.8rem;}
 
   /* ---------- experience timeline ---------- */
   .timeline{border-left:2px solid var(--line); padding-left:28px; margin-left:6px;}
@@ -324,8 +334,11 @@
     background:var(--paper); border:2px solid var(--teal);
   }
   .tl-date{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    font-size:0.78rem;
     color:var(--amber);
     margin-bottom:6px;
     display:block;
@@ -338,8 +351,9 @@
   /* ---------- skills ---------- */
   .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px;}
   .skill-group h4{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
     letter-spacing:0.06em;
     text-transform:uppercase;
     color:var(--teal);
@@ -347,6 +361,7 @@
   }
   .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
   .chip{
+    font-family:'Karla', sans-serif;
     font-size:0.85rem;
     padding:7px 13px;
     border:1px solid var(--line);
@@ -365,8 +380,9 @@
   .edu-badges{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
   .extras{margin-top:28px;}
   .extras h4{
-    font-family:'IBM Plex Mono', monospace;
-    font-size:0.75rem;
+    font-family:'Karla', sans-serif;
+    font-weight:700;
+    font-size:0.78rem;
     letter-spacing:0.06em;
     text-transform:uppercase;
     color:var(--ink-soft);
@@ -395,7 +411,8 @@
     padding:11px 20px;
     border-radius:2px;
     font-size:0.9rem;
-    font-family:'IBM Plex Mono', monospace;
+    font-family:'Karla', sans-serif;
+    font-weight:500;
   }
   .contact-links a svg{width:16px; height:16px; flex-shrink:0; color:#9aa0bd;}
   .contact-links a:hover{border-color:var(--amber); text-decoration:none; color:var(--amber-soft);}
@@ -405,8 +422,8 @@
     padding:26px 0;
     text-align:center;
     color:var(--ink-soft);
-    font-size:0.8rem;
-    font-family:'IBM Plex Mono', monospace;
+    font-size:0.82rem;
+    font-family:'Karla', sans-serif;
     background:var(--ink);
   }
 
@@ -450,16 +467,16 @@
     </div>
     <div>
       <div class="expr-card">
-        <span class="expr-eyebrow">Sample annotation, three raters, one sentence</span>
-        <p class="annot-sentence-single">"I'm <u style="color:#6b6456;">doing</u> <u style="color:var(--teal);">okay</u>, I <u style="color:var(--amber);">guess</u>."</p>
+        <span class="expr-eyebrow">Field note · sample annotation, three raters, one sentence</span>
+        <p class="annot-sentence-single">"I'm <u style="color:var(--ink);">doing</u> <u style="color:var(--navy);">okay</u>, I <u style="color:var(--brick);">guess</u>."</p>
         <div class="expr-divider"></div>
         <div class="annot-legend">
-          <span class="leg-row" style="animation-delay:0ms;"><i class="leg-dot" style="background:#6b6456;"></i>Rater A marked this <b>Neutral</b></span>
-          <span class="leg-row" style="animation-delay:140ms;"><i class="leg-dot" style="background:var(--teal);"></i>Rater B marked this <b>Positive</b></span>
-          <span class="leg-row" style="animation-delay:280ms;"><i class="leg-dot" style="background:var(--amber);"></i>Rater C marked this <b>Negative</b></span>
+          <span class="leg-row"><i class="leg-dot" style="background:var(--ink);"></i>Rater A - <b>Neutral</b></span>
+          <span class="leg-row"><i class="leg-dot" style="background:var(--navy);"></i>Rater B - <b>Positive</b></span>
+          <span class="leg-row"><i class="leg-dot" style="background:var(--brick);"></i>Rater C - <b>Negative</b></span>
         </div>
+        <div class="signature-caption">"Okay" and "guess" carry the disagreement, the word most annotators skip past is the one a model needs most.</div>
       </div>
-      <div class="signature-caption">"Okay" and "guess" carry the disagreement, the word most annotators skip past is the one a model needs most.</div>
     </div>
   </div>
 </section>
@@ -467,7 +484,7 @@
 <section id="about">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">ABOUT</span>
+      <span class="section-num">ABOUT</span>
       <h2>A software engineer who kept asking why the annotators disagreed</h2>
     </div>
     <div class="about-text">
@@ -482,7 +499,7 @@
 <section class="alt" id="research">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">RESEARCH FOCUS</span>
+      <span class="section-num">RESEARCH FOCUS</span>
       <h2>Three questions I keep returning to</h2>
     </div>
     <p class="section-lede">That annotators disagree is already well documented, that part isn't new. What I want to know is narrower: whether a model's own confidence score actually tracks that disagreement, whether calibrated uncertainty holds up when the stakes are health-related, and whether any of it survives the jump to low-resource Bengali text.</p>
@@ -509,7 +526,7 @@
 <section id="publications">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">PUBLICATIONS</span>
+      <span class="section-num">PUBLICATIONS</span>
       <h2>Peer-reviewed work</h2>
     </div>
 
@@ -554,7 +571,7 @@
 <section class="alt" id="experience">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">EXPERIENCE</span>
+      <span class="section-num">EXPERIENCE</span>
       <h2>Where the work has happened</h2>
     </div>
     <div class="timeline">
@@ -591,7 +608,7 @@
 <section>
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">SKILLS</span>
+      <span class="section-num">SKILLS</span>
       <h2>Tools of both trades</h2>
     </div>
     <div class="skills-grid">
@@ -665,7 +682,7 @@
 <section class="alt" id="education">
   <div class="wrap">
     <div class="section-head">
-      <span class="section-num mono">EDUCATION</span>
+      <span class="section-num">EDUCATION</span>
       <h2>Foundations</h2>
     </div>
     <div class="edu-card">
