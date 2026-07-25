@@ -23,6 +23,7 @@
     --white:#fffdf9;
     --navy:#33456b;
     --brick:#a13d2e;
+    --green:#2f6b3f;
     --radius:2px;
     --maxw:1040px;
     --mono: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
@@ -194,7 +195,7 @@
     display:flex;
     flex-wrap:wrap;
     align-items:center;
-    gap:22px;
+    gap:16px;
   }
   .annot-legend .leg-row{
     display:inline-flex;
@@ -468,11 +469,11 @@
     <div>
       <div class="expr-card">
         <span class="expr-eyebrow">Field note · sample annotation, three raters, one sentence</span>
-        <p class="annot-sentence-single">"I'm <u style="color:var(--ink);">doing</u> <u style="color:var(--navy);">okay</u>, I <u style="color:var(--brick);">guess</u>."</p>
+        <p class="annot-sentence-single">"I'm <u style="color:var(--navy);">doing</u> <u style="color:var(--green);">okay</u>, I <u style="color:var(--brick);">guess</u>."</p>
         <div class="expr-divider"></div>
         <div class="annot-legend">
-          <span class="leg-row"><i class="leg-dot" style="background:var(--ink);"></i>Rater A - <b>Neutral</b></span>
-          <span class="leg-row"><i class="leg-dot" style="background:var(--navy);"></i>Rater B - <b>Positive</b></span>
+          <span class="leg-row"><i class="leg-dot" style="background:var(--navy);"></i>Rater A - <b>Neutral</b></span>
+          <span class="leg-row"><i class="leg-dot" style="background:var(--green);"></i>Rater B - <b>Positive</b></span>
           <span class="leg-row"><i class="leg-dot" style="background:var(--brick);"></i>Rater C - <b>Negative</b></span>
         </div>
         <div class="signature-caption">"Okay" and "guess" carry the disagreement, the word most annotators skip past is the one a model needs most.</div>
