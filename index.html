@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Irin Hoque Orchi — NLP Researcher &amp; Software Engineer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#f5f3ee;
+    --paper-dim:#eae7de;
+    --ink:#141a2e;
+    --ink-soft:#4a5068;
+    --line:#d9d5c8;
+    --amber:#c1893c;
+    --amber-soft:#e8d4b4;
+    --teal:#2c6e68;
+    --teal-soft:#cfe3df;
+    --plum:#4f6a8f;
+    --plum-soft:#dde3ec;
+    --white:#fffdf9;
+    --radius:2px;
+    --maxw:1040px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--amber-soft);}
+  a{color:var(--teal); text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
+ 
+  h1,h2,h3,h4{
+    font-family:'Newsreader', serif;
+    font-weight:500;
+    color:var(--ink);
+    margin:0;
+    letter-spacing:-0.01em;
+  }
+  .mono{font-family:'IBM Plex Mono', monospace;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+ 
+  /* ---------- nav ---------- */
+  header.site-nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(245,243,238,0.92);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-inner{
+    max-width:var(--maxw); margin:0 auto; padding:16px 28px;
+    display:flex; justify-content:space-between; align-items:center;
+    flex-wrap:wrap; gap:10px;
+  }
+  .nav-mark{font-family:'Newsreader', serif; font-size:1.3rem; font-weight:600;}
+  .nav-mark span{color:var(--teal);}
+  nav.nav-links{display:flex; gap:24px; flex-wrap:wrap;}
+  nav.nav-links a{
+    color:var(--ink-soft); font-size:0.88rem; font-weight:500;
+    text-decoration:none; letter-spacing:0.02em;
+  }
+  nav.nav-links a:hover{color:var(--teal);}
+ 
+  /* ---------- hero ---------- */
+  .hero{
+    padding:88px 0 36px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.25fr 1fr;
+    gap:48px;
+    align-items:center;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{
+    content:''; width:22px; height:1px; background:var(--teal);
+  }
+  .hero-name{
+    font-family:'Newsreader', serif;
+    font-size:clamp(1.5rem, 2.4vw, 1.9rem);
+    font-weight:600;
+    color:var(--ink);
+    margin:0 0 10px;
+  }
+  h1.hero-title{
+    font-size:clamp(1.4rem, 2.6vw, 2rem);
+    font-weight:500;
+    line-height:1.24;
+    color:var(--ink-soft);
+  }
+  h1.hero-title em{
+    font-style:italic; color:var(--teal);
+  }
+  .hero-sub{
+    margin-top:20px;
+    max-width:46ch;
+    color:var(--ink-soft);
+    font-size:1.05rem;
+  }
+  .seeking-pill{
+    display:inline-flex; align-items:center; gap:8px;
+    margin-top:22px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    letter-spacing:0.03em;
+    color:var(--teal);
+    background:var(--teal-soft);
+    border:1px solid var(--teal);
+    padding:7px 14px;
+    border-radius:2px;
+  }
+  .seeking-pill::before{
+    content:''; width:7px; height:7px; border-radius:50%;
+    background:var(--teal); flex-shrink:0;
+  }
+  .hero-cta{
+    margin-top:28px;
+    display:flex; gap:14px; flex-wrap:wrap;
+  }
+  .btn{
+    display:inline-flex; align-items:center; gap:8px;
+    padding:11px 20px;
+    font-family:'IBM Plex Sans', sans-serif;
+    font-size:0.9rem; font-weight:600;
+    border-radius:var(--radius);
+    border:1px solid var(--ink);
+    text-decoration:none;
+    transition:background 0.15s ease, color 0.15s ease, transform 0.15s ease;
+  }
+  .btn-primary{background:var(--ink); color:var(--white);}
+  .btn-primary:hover{background:var(--teal); border-color:var(--teal); text-decoration:none; transform:translateY(-1px);}
+  .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
+  .btn-ghost:hover{border-color:var(--ink); text-decoration:none;}
+ 
+  /* ---------- signature: one sentence, underlined differently by each annotator ---------- */
+  .expr-card{
+    background:var(--white);
+    border:1px solid var(--line);
+    border-radius:3px;
+    padding:30px 28px 26px;
+    box-shadow:0 1px 0 var(--line);
+  }
+  .expr-eyebrow{
+    display:block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.09em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:20px;
+  }
+  .annot-sentence-single{
+    margin:0;
+    font-family:'Newsreader', serif;
+    font-size:1.22rem;
+    line-height:1.7;
+    color:var(--ink);
+  }
+  .annot-sentence-single u{
+    text-decoration:none;
+    padding-bottom:2px;
+    border-bottom:2px solid currentColor;
+  }
+  .expr-divider{height:1px; background:var(--line); margin:24px 0 18px;}
+  .annot-legend{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+  }
+  .annot-legend .leg-row{
+    display:flex;
+    align-items:baseline;
+    gap:10px;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    color:var(--ink-soft);
+    opacity:0;
+    animation:rise 0.5s ease forwards;
+  }
+  .annot-legend .leg-dot{
+    width:9px; height:9px; border-radius:50%; flex-shrink:0;
+  }
+  .annot-legend b{color:var(--ink);}
+  @keyframes rise{
+    from{opacity:0; transform:translateY(6px);}
+    to{opacity:1; transform:translateY(0);}
+  }
+  .signature-caption{
+    text-align:center;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.72rem;
+    color:var(--ink-soft);
+    letter-spacing:0.03em;
+    margin-top:14px;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .annot-legend .leg-row{animation:none; opacity:1;}
+  }
+ 
+  /* ---------- section shell ---------- */
+  section{padding:64px 0;}
+  #about{padding-top:24px;}
+  section.alt{background:var(--paper-dim); border-top:1px solid var(--line); border-bottom:1px solid var(--line);}
+  .section-head{
+    display:flex; align-items:baseline; gap:16px;
+    margin-bottom:38px;
+    flex-wrap:wrap;
+  }
+  .section-num{
+    font-family:'IBM Plex Mono', monospace;
+    color:var(--amber);
+    font-size:0.85rem;
+  }
+  .section-head h2{font-size:1.7rem;}
+  .section-lede{
+    color:var(--ink-soft);
+    max-width:60ch;
+    margin-top:-22px;
+    margin-bottom:38px;
+    font-size:0.98rem;
+  }
+ 
+  /* ---------- about ---------- */
+  .about-text{max-width:66ch;}
+  .about-text p{color:var(--ink-soft); margin:0 0 18px; font-size:1rem;}
+  .about-text p:last-child{margin-bottom:0;}
+  .about-text p strong{color:var(--ink); font-weight:600;}
+ 
+  /* ---------- research focus ---------- */
+  .focus-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:1px;
+    background:var(--line);
+    border:1px solid var(--line);
+  }
+  .focus-card{
+    background:var(--paper);
+    padding:26px 24px;
+  }
+  .focus-card h3{font-size:1.05rem; margin-bottom:10px;}
+  .focus-card p{color:var(--ink-soft); font-size:0.92rem; margin:0;}
+  .focus-tag{
+    display:inline-block;
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.68rem;
+    letter-spacing:0.04em;
+    padding:3px 8px;
+    border-radius:2px;
+    margin-bottom:14px;
+  }
+  .focus-tag.fc-teal{color:var(--teal); background:var(--teal-soft);}
+  .focus-tag.fc-amber{color:#7a4f18; background:var(--amber-soft);}
+  .focus-tag.fc-plum{color:var(--plum); background:var(--plum-soft);}
+  /* ---------- publications ---------- */
+  .pub{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:28px;
+    margin-bottom:20px;
+  }
+  .pub-top{
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:16px; flex-wrap:wrap;
+    margin-bottom:12px;
+  }
+  .pub-role{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.7rem;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    padding:4px 9px;
+    border-radius:2px;
+    white-space:nowrap;
+  }
+  .pub-role.first{background:var(--amber-soft); color:#7a4f18;}
+  .pub-role.co{background:var(--teal-soft); color:var(--teal);}
+  .pub h3{font-size:1.15rem; margin-bottom:6px;}
+  .pub-venue{color:var(--ink-soft); font-size:0.88rem; margin-bottom:14px;}
+  .pub-desc{color:var(--ink-soft); font-size:0.92rem; margin-bottom:16px;}
+  .metric-row{display:flex; flex-wrap:wrap; gap:10px; margin-bottom:14px;}
+  .metric{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.78rem;
+    background:var(--paper-dim);
+    border:1px solid var(--line);
+    padding:6px 10px;
+    border-radius:2px;
+  }
+  .metric b{color:var(--teal);}
+  .pub-links{font-family:'IBM Plex Mono', monospace; font-size:0.8rem;}
+
+  /* ---------- experience timeline ---------- */
+  .timeline{border-left:2px solid var(--line); padding-left:28px; margin-left:6px;}
+  .tl-item{position:relative; padding-bottom:38px;}
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-item::before{
+    content:'';
+    position:absolute; left:-33px; top:5px;
+    width:10px; height:10px; border-radius:50%;
+    background:var(--paper); border:2px solid var(--teal);
+  }
+  .tl-date{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    color:var(--amber);
+    margin-bottom:6px;
+    display:block;
+  }
+  .tl-item h3{font-size:1.1rem; margin-bottom:4px;}
+  .tl-org{color:var(--ink-soft); font-size:0.88rem; margin-bottom:10px;}
+  .tl-item ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.92rem;}
+  .tl-item li{margin-bottom:5px;}
+
+  /* ---------- skills ---------- */
+  .skills-grid{display:grid; grid-template-columns:repeat(2,1fr); gap:32px;}
+  .skill-group h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin-bottom:14px;
+  }
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px;}
+  .chip{
+    font-size:0.85rem;
+    padding:7px 13px;
+    border:1px solid var(--line);
+    border-radius:2px;
+    background:var(--paper);
+  }
+
+  /* ---------- education / extras ---------- */
+  .edu-card{
+    border:1px solid var(--line);
+    background:var(--paper);
+    padding:26px;
+  }
+  .edu-card h3{font-size:1.1rem;}
+  .edu-meta{color:var(--ink-soft); font-size:0.9rem; margin-top:6px;}
+  .edu-badges{display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;}
+  .extras{margin-top:28px;}
+  .extras h4{
+    font-family:'IBM Plex Mono', monospace;
+    font-size:0.75rem;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-bottom:10px;
+  }
+  .extras ul{margin:0; padding-left:18px; color:var(--ink-soft); font-size:0.9rem;}
+  .extras li{margin-bottom:6px;}
+
+  /* ---------- contact ---------- */
+  .contact{
+    background:var(--ink);
+    color:var(--white);
+    padding:72px 0;
+  }
+  .contact h2{color:var(--white); font-size:2rem;}
+  .contact p{color:#c7cad9; max-width:52ch; margin-top:14px;}
+  .contact-links{
+    display:flex; gap:16px; flex-wrap:wrap; margin-top:32px;
+  }
+  .contact-links a{
+    display:inline-flex;
+    align-items:center;
+    gap:9px;
+    color:var(--white);
+    border:1px solid #3a4160;
+    padding:11px 20px;
+    border-radius:2px;
+    font-size:0.9rem;
+    font-family:'IBM Plex Mono', monospace;
+  }
+  .contact-links a svg{width:16px; height:16px; flex-shrink:0; color:#9aa0bd;}
+  .contact-links a:hover{border-color:var(--amber); text-decoration:none; color:var(--amber-soft);}
+  .contact-links a:hover svg{color:var(--amber-soft);}
+
+  footer{
+    padding:26px 0;
+    text-align:center;
+    color:var(--ink-soft);
+    font-size:0.8rem;
+    font-family:'IBM Plex Mono', monospace;
+    background:var(--ink);
+  }
+
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr;}
+    .signature{max-width:280px; margin:0 auto;}
+    .focus-grid{grid-template-columns:1fr;}
+    .skills-grid{grid-template-columns:1fr;}
+    nav.nav-links{gap:14px;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site-nav">
+  <div class="nav-inner">
+    <div class="nav-mark">Irin Hoque <span>Orchi</span></div>
+    <nav class="nav-links">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#experience">Experience</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Dhaka, Bangladesh</div>
+      <h1 class="hero-title">Researching where <em>human annotators disagree</em>, and why language models fail to notice.</h1>
+      <p class="hero-sub">Software Engineer at Bdjobs.com Limited and NLP researcher working on annotation disagreement, uncertainty-aware learning, and trustworthy language models for health-related text.</p>
+      <div class="seeking-pill">Actively seeking research opportunities</div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#publications">Read the research</a>
+        <a class="btn btn-ghost" href="#contact">Get in touch</a>
+      </div>
+    </div>
+    <div>
+      <div class="expr-card">
+        <span class="expr-eyebrow">Sample annotation, three raters, one sentence</span>
+        <p class="annot-sentence-single">"I'm <u style="color:#6b6456;">doing</u> <u style="color:var(--teal);">okay</u>, I <u style="color:var(--amber);">guess</u>."</p>
+        <div class="expr-divider"></div>
+        <div class="annot-legend">
+          <span class="leg-row" style="animation-delay:0ms;"><i class="leg-dot" style="background:#6b6456;"></i>Rater A marked this <b>Neutral</b></span>
+          <span class="leg-row" style="animation-delay:140ms;"><i class="leg-dot" style="background:var(--teal);"></i>Rater B marked this <b>Positive</b></span>
+          <span class="leg-row" style="animation-delay:280ms;"><i class="leg-dot" style="background:var(--amber);"></i>Rater C marked this <b>Negative</b></span>
+        </div>
+      </div>
+      <div class="signature-caption">"Okay" and "guess" carry the disagreement, the word most annotators skip past is the one a model needs most.</div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">ABOUT</span>
+      <h2>A software engineer who kept asking why the annotators disagreed</h2>
+    </div>
+    <div class="about-text">
+      <p>I'm a Software Engineer at Bdjobs.com Limited, where I spend most days on ASP.NET Core and Angular, and lately on an AI-based matching score that ranks candidate profiles against job postings. Before that I interned at Dhaka Bank PLC, building a face-recognition attendance system, which was a fairly ordinary way into the industry.</p>
+      <p>The research side started with my undergraduate thesis. My team collected thousands of social media posts from cancer patients and their caregivers and had people label the emotions in them. What stuck with me wasn't the model results so much as how often the human annotators disagreed with each other on posts that were genuinely ambiguous. Most of what I'd read treated that disagreement as noise to average away. It felt more like the actual signal worth paying attention to.</p>
+      <p>That question, of when and why models fail to notice what humans clearly disagree about, is what pulled me toward NLP research alongside my day job. Right now I'm working on a workshop paper that tests whether showing a model's confidence score changes how annotators anchor on its suggestion, and I'd like to eventually take these questions into low-resource and code-mixed Bengali text, where very little of this has been studied.</p>
+      <p>I studied Computer Science and Engineering at BRAC University. Outside of work, I'm usually somewhere between a research paper and a dataset I'm trying to clean up.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="research">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">RESEARCH FOCUS</span>
+      <h2>Three questions I keep returning to</h2>
+    </div>
+    <p class="section-lede">That annotators disagree is already well documented, that part isn't new. What I want to know is narrower: whether a model's own confidence score actually tracks that disagreement, whether calibrated uncertainty holds up when the stakes are health-related, and whether any of it survives the jump to low-resource Bengali text.</p>
+    <div class="focus-grid">
+      <div class="focus-card">
+        <span class="focus-tag">CONFIDENCE VS. CONSENSUS</span>
+        <h3>Does model confidence track genuine human uncertainty?</h3>
+        <p>Disagreement itself is well studied. Less clear is whether a model's confidence score changes how annotators anchor on its suggested label, especially on the items people disagree about most. A pilot study of mine tests this directly.</p>
+      </div>
+      <div class="focus-card">
+        <span class="focus-tag">LLMS</span>
+        <h3>Uncertainty-aware large language models</h3>
+        <p>Studying where large language models fail to capture human annotation disagreement in health-related emotion detection, a machine learning question as much as a linguistic one.</p>
+      </div>
+      <div class="focus-card">
+        <span class="focus-tag">EXPLAINABILITY</span>
+        <h3>Trustworthy NLP for clinical text</h3>
+        <p>Interpretable methods for NLP systems applied to clinical and health-related contexts, and low-resource Bengali language processing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="publications">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">PUBLICATIONS</span>
+      <h2>Peer-reviewed work</h2>
+    </div>
+
+    <div class="pub">
+      <div class="pub-top">
+        <h3>A Qualitative Study of the Mental Health Experiences of Cancer Patients with the Lowest Survival Rate and Their Caregivers</h3>
+        <span class="pub-role first">First author</span>
+      </div>
+      <div class="pub-venue">IEEE ICCIT 2023 · DOI 10.1109/ICCIT60459.2023.10441282</div>
+      <p class="pub-desc">Built a 10,087-post dataset drawn from cancer-related social media discussion, with 2,373 posts manually annotated for emotion. Inter-annotator agreement landed at a Cohen's Kappa of 0.40 to 0.60, itself a signal of how genuinely ambiguous emotional language can be in a health context. Compared GRU, few-shot SBERT, and SVM baselines.</p>
+      <div class="metric-row">
+        <span class="metric">GRU (TF-IDF + FastText): <b>75% accuracy</b></span>
+        <span class="metric">SBERT few-shot: <b>F1 0.82</b>, 71% accuracy</span>
+        <span class="metric">SVM baseline: <b>62% accuracy</b></span>
+        <span class="metric">Cohen's Kappa: <b>0.40–0.60</b></span>
+      </div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1109/ICCIT60459.2023.10441282" target="_blank" rel="noopener">Paper DOI ↗</a> &nbsp;·&nbsp;
+        <a href="https://doi.org/10.17632/69dcnv2gzd.1" target="_blank" rel="noopener">Dataset DOI ↗</a>
+      </div>
+    </div>
+
+    <div class="pub">
+      <div class="pub-top">
+        <h3>Mitigating Online Harassment: Machine Learning Approaches for Hate Speech Detection in Transliterated Bengali Comments</h3>
+        <span class="pub-role co">Co-author</span>
+      </div>
+      <div class="pub-venue">IEEE ICCIT 2023 · DOI 10.1109/ICCIT60459.2023.10441244</div>
+      <p class="pub-desc">Contributed to the first public corpus of transliterated Bengali hate speech, built from 5,000 Facebook comments, including a custom preprocessing pipeline since no standard tokenizer or stopword list existed for the transliterated form. Benchmarked seven classifiers across TF-IDF and bag-of-words representations.</p>
+      <div class="metric-row">
+        <span class="metric">Binary SVM + TF-IDF: <b>F1 0.741</b></span>
+        <span class="metric">Binary Bi-LSTM: <b>F1 0.422</b></span>
+        <span class="metric">Multiclass SVM: <b>F1 0.578</b></span>
+      </div>
+      <div class="pub-links">
+        <a href="https://doi.org/10.1109/ICCIT60459.2023.10441244" target="_blank" rel="noopener">Paper DOI ↗</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="experience">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">EXPERIENCE</span>
+      <h2>Where the work has happened</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item">
+        <span class="tl-date">AUG 2024 — PRESENT</span>
+        <h3>Software Engineer</h3>
+        <div class="tl-org">Bdjobs.com Limited</div>
+        <ul>
+          <li>Build and maintain production features on ASP.NET Core and Angular following clean architecture practices</li>
+          <li>Developing an AI-based candidate-job matching score that ranks applicant profiles against job requirements</li>
+          <li>Work with Firebase and Cloudflare Turnstile across the platform stack</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">NOV 2023 — FEB 2024</span>
+        <h3>IT Division Intern</h3>
+        <div class="tl-org">Dhaka Bank PLC</div>
+        <ul>
+          <li>Built a biometric, face-recognition-based staff attendance system</li>
+        </ul>
+      </div>
+      <div class="tl-item">
+        <span class="tl-date">2023</span>
+        <h3>Invited Speaker, Digital Equity Fellowship</h3>
+        <div class="tl-org">Save the Children Bangladesh</div>
+        <ul>
+          <li>Delivered a talk on digital equity, ICT skills, and gender inclusion in technology</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">SKILLS</span>
+      <h2>Tools of both trades</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>NLP &amp; Machine Learning</h4>
+        <div class="chip-row">
+          <span class="chip">Python</span>
+          <span class="chip">PyTorch</span>
+          <span class="chip">TensorFlow</span>
+          <span class="chip">scikit-learn</span>
+          <span class="chip">SVM</span>
+          <span class="chip">Bi-LSTM</span>
+          <span class="chip">GRU</span>
+          <span class="chip">SBERT</span>
+          <span class="chip">Few-shot learning</span>
+          <span class="chip">TF-IDF &amp; FastText</span>
+          <span class="chip">Annotation disagreement analysis</span>
+          <span class="chip">Uncertainty-aware learning</span>
+          <span class="chip">Cohen's Kappa &amp; inter-annotator agreement</span>
+          <span class="chip">Low-resource &amp; code-mixed Bengali NLP</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Data Processing &amp; Tooling</h4>
+        <div class="chip-row">
+          <span class="chip">NumPy</span>
+          <span class="chip">Pandas</span>
+          <span class="chip">BeautifulSoup</span>
+          <span class="chip">Jupyter</span>
+          <span class="chip">Data cleaning &amp; preprocessing</span>
+          <span class="chip">Web scraping &amp; corpus collection</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Software Engineering</h4>
+        <div class="chip-row">
+          <span class="chip">ASP.NET Core</span>
+          <span class="chip">Angular</span>
+          <span class="chip">C#</span>
+          <span class="chip">RESTful APIs</span>
+          <span class="chip">Clean architecture</span>
+          <span class="chip">Firebase</span>
+          <span class="chip">Cloudflare Turnstile</span>
+          <span class="chip">Git &amp; version control</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Research &amp; Methodology</h4>
+        <div class="chip-row">
+          <span class="chip">Dataset design &amp; annotation</span>
+          <span class="chip">Statistical evaluation &amp; benchmarking</span>
+          <span class="chip">Qualitative &amp; mixed-methods research</span>
+          <span class="chip">Academic writing (IEEE &amp; ACL formats)</span>
+          <span class="chip">LaTeX</span>
+          <span class="chip">Peer-reviewed publication</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <h4>Project &amp; Delivery Management</h4>
+        <div class="chip-row">
+          <span class="chip">Cross-team project tracking</span>
+          <span class="chip">Delivery coordination</span>
+          <span class="chip">Stakeholder communication</span>
+          <span class="chip">Technical documentation</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="education">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="section-num mono">EDUCATION</span>
+      <h2>Foundations</h2>
+    </div>
+    <div class="edu-card">
+      <h3>B.Sc. in Computer Science and Engineering</h3>
+      <div class="edu-meta">BRAC University · Thesis supervised by Dr. Farig Yousuf Sadeque</div>
+      <div class="edu-badges">
+        <span class="metric">GPA <b>3.58 / 4.00</b>, Distinction</span>
+        <span class="metric">IELTS <b>7.0</b> overall</span>
+      </div>
+    </div>
+    <div class="extras">
+      <h4>Beyond the classroom</h4>
+      <ul>
+        <li>Assistant Secretary, BRAC University Cultural Club (2020–2022)</li>
+        <li>Photography Department, BRAC University Adventure Club (2020–2022)</li>
+        <li>Junior Executive, Finance &amp; Marketing, Robotics Club of BRAC University (2019–2022)</li>
+        <li>Volunteer, Kishor Alo / Prothom Alo (2014–2018)</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap">
+    <h2>Let's talk about disagreement, uncertainty, or your research group</h2>
+    <p>I'm actively seeking research opportunities in natural language processing and large language models, and the wider space around them, including machine learning, health informatics, and human-centered AI. If my work on annotation disagreement and uncertainty-aware learning overlaps with what your lab is building, I would welcome the conversation.</p>
+    <div class="contact-links">
+      <a href="mailto:irin.hoque.orchi@g.bracu.ac.bd"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="4" width="16" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/><path d="M2.5 5L10 11L17.5 5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>irin.hoque.orchi@g.bracu.ac.bd</a>
+      <a href="tel:+8801521255368"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 2.5C3 2.5 2.5 3 2.5 4C2.5 11.5 8.5 17.5 16 17.5C17 17.5 17.5 17 17.5 16V13.2C17.5 12.7 17.1 12.3 16.6 12.2L13.4 11.5C13 11.4 12.6 11.6 12.4 11.9L11.2 13.5C9.2 12.5 7.5 10.8 6.5 8.8L8.1 7.6C8.4 7.4 8.6 7 8.5 6.6L7.8 3.4C7.7 2.9 7.3 2.5 6.8 2.5H4Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/></svg>+88 01521-255368</a>
+      <a href="https://github.com/IrinOrchi" target="_blank" rel="noopener"><svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10 2C5.58 2 2 5.58 2 10C2 13.53 4.29 16.53 7.47 17.59C7.87 17.66 8.02 17.42 8.02 17.21C8.02 17.02 8.01 16.39 8.01 15.72C6 16.09 5.48 15.23 5.32 14.78C5.23 14.55 4.84 13.84 4.5 13.65C4.22 13.5 3.82 13.13 4.49 13.12C5.12 13.11 5.57 13.7 5.72 13.94C6.44 15.15 7.59 14.81 8.05 14.6C8.12 14.08 8.33 13.73 8.56 13.53C6.78 13.33 4.92 12.64 4.92 9.58C4.92 8.71 5.23 7.99 5.74 7.43C5.66 7.23 5.38 6.41 5.82 5.31C5.82 5.31 6.49 5.1 8.02 6.13C8.66 5.95 9.34 5.86 10.02 5.86C10.7 5.86 11.38 5.95 12.02 6.13C13.55 5.09 14.22 5.31 14.22 5.31C14.66 6.41 14.38 7.23 14.3 7.43C14.81 7.99 15.12 8.7 15.12 9.58C15.12 12.65 13.25 13.33 11.47 13.53C11.76 13.78 12.01 14.26 12.01 15.01C12.01 16.08 12 16.94 12 17.21C12 17.42 12.15 17.67 12.55 17.59C15.71 16.53 18 13.52 18 10C18 5.58 14.42 2 10 2Z" fill="currentColor"/></svg>github.com/IrinOrchi</a>
+    </div>
+  </div>
+</section>
+
+<footer>Built by Irin Hoque Orchi · Dhaka, Bangladesh</footer>
+
+</body>
+</html>
