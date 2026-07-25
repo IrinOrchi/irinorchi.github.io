@@ -39,7 +39,7 @@
   a{color:var(--teal); text-decoration:none;}
   a:hover{text-decoration:underline;}
   a:focus-visible, button:focus-visible{outline:2px solid var(--teal); outline-offset:3px;}
- 
+
   h1,h2,h3,h4{
     font-family:'Newsreader', serif;
     font-weight:500;
@@ -49,7 +49,7 @@
   }
   .mono{font-family:'IBM Plex Mono', monospace;}
   .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
- 
+
   /* ---------- nav ---------- */
   header.site-nav{
     position:sticky; top:0; z-index:50;
@@ -70,7 +70,7 @@
     text-decoration:none; letter-spacing:0.02em;
   }
   nav.nav-links a:hover{color:var(--teal);}
- 
+
   /* ---------- hero ---------- */
   .hero{
     padding:88px 0 36px;
@@ -151,7 +151,7 @@
   .btn-primary:hover{background:var(--teal); border-color:var(--teal); text-decoration:none; transform:translateY(-1px);}
   .btn-ghost{background:transparent; color:var(--ink); border-color:var(--line);}
   .btn-ghost:hover{border-color:var(--ink); text-decoration:none;}
- 
+
   /* ---------- signature: one sentence, underlined differently by each annotator ---------- */
   .expr-card{
     background:var(--white);
@@ -216,7 +216,7 @@
   @media (prefers-reduced-motion: reduce){
     .annot-legend .leg-row{animation:none; opacity:1;}
   }
- 
+
   /* ---------- section shell ---------- */
   section{padding:64px 0;}
   #about{padding-top:24px;}
@@ -239,13 +239,18 @@
     margin-bottom:38px;
     font-size:0.98rem;
   }
- 
+
   /* ---------- about ---------- */
-  .about-text{max-width:66ch;}
-  .about-text p{color:var(--ink-soft); margin:0 0 18px; font-size:1rem;}
+  .about-text{max-width:none;}
+  .about-text p{
+    color:var(--ink-soft);
+    margin:0 0 18px;
+    font-size:1.05rem;
+    max-width:78ch;
+  }
   .about-text p:last-child{margin-bottom:0;}
   .about-text p strong{color:var(--ink); font-weight:600;}
- 
+
   /* ---------- research focus ---------- */
   .focus-grid{
     display:grid;
@@ -485,17 +490,17 @@
     <p class="section-lede">That annotators disagree is already well documented, that part isn't new. What I want to know is narrower: whether a model's own confidence score actually tracks that disagreement, whether calibrated uncertainty holds up when the stakes are health-related, and whether any of it survives the jump to low-resource Bengali text.</p>
     <div class="focus-grid">
       <div class="focus-card">
-        <span class="focus-tag">CONFIDENCE VS. CONSENSUS</span>
+        <span class="focus-tag fc-teal">CONFIDENCE VS. CONSENSUS</span>
         <h3>Does model confidence track genuine human uncertainty?</h3>
         <p>Disagreement itself is well studied. Less clear is whether a model's confidence score changes how annotators anchor on its suggested label, especially on the items people disagree about most. A pilot study of mine tests this directly.</p>
       </div>
       <div class="focus-card">
-        <span class="focus-tag">LLMS</span>
+        <span class="focus-tag fc-amber">LLMS</span>
         <h3>Uncertainty-aware large language models</h3>
         <p>Studying where large language models fail to capture human annotation disagreement in health-related emotion detection, a machine learning question as much as a linguistic one.</p>
       </div>
       <div class="focus-card">
-        <span class="focus-tag">EXPLAINABILITY</span>
+        <span class="focus-tag fc-plum">EXPLAINABILITY</span>
         <h3>Trustworthy NLP for clinical text</h3>
         <p>Interpretable methods for NLP systems applied to clinical and health-related contexts, and low-resource Bengali language processing.</p>
       </div>
